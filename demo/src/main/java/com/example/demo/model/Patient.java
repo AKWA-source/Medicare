@@ -1,20 +1,26 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="admin")
+@Table(name="patient")
 @Getter
 @Setter
-public class Admin {
-	
+public class Patient {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long adminID;
+    private Long patientID;
 
 
     @Column(name="name")
@@ -27,8 +33,8 @@ public class Admin {
     @Column(name="password")
     private String password;
 
-    //    @Column(nullable = false)
-    @Column(name="age")
+   
+    @Column(name="age",nullable = false)
     private Integer age;
     
     @Column(name="contact_no")
